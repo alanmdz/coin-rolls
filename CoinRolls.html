@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<p id="amountInput"></p>
+	<p id="quarter"></p>
+	<p id="dime"></p>
+	<p id="nickel"></p>
+	<p id="penny"></p>
+
+	<button onclick="myFunction()">Click here to get your dollar amount in change.</button>
+
+	<script>
+		var rollValues = [.5, 2, 5, 10];
+		var remainder = 0;
+
+		function myFunction() {
+			var inputValue = prompt("Enter amount in dollars to change (whole numbers only)");
+
+
+			if (inputValue != null) {
+				document.getElementById("amountInput").innerHTML =
+					"Amount Entered: $" + inputValue;
+
+				var quarterRolls = (inputValue / 10);
+				document.getElementById("quarter").innerHTML =
+					"Quarter Roll(s): " + Math.floor(quarterRolls);
+
+				remainder = inputValue % 10;
+
+				var dimeRolls = (remainder / 5);
+				document.getElementById("dime").innerHTML =
+					"Dime Roll(s): " + Math.floor(dimeRolls);
+
+				remainder = remainder % 5;
+
+				var nickelRolls = (remainder / 2);
+				document.getElementById("nickel").innerHTML =
+					"Nickel Roll(s): " + Math.floor(nickelRolls);
+
+				remainder = remainder % 2;
+
+				var pennyRolls = (remainder / .5)
+				document.getElementById("penny").innerHTML =
+					"Penny Roll(s): " + Math.ceil(pennyRolls);
+
+			}
+
+
+		}
+	</script>
+
+
+
+</body>
+
+</html>
